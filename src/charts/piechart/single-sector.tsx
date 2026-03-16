@@ -51,7 +51,7 @@ const SingleSector = ({
 					r={radius}
 					stroke={stroke ?? "black"}
 					strokeWidth={strokeWidth}
-					fill={data[0].fill ?? DEFAULT_COLORS[0]}
+					fill={data[0].fill}
 				/>
 				{showLabels && (
 					<text

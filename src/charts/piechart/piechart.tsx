@@ -1,5 +1,6 @@
 import { memo, useMemo } from "react"
 import { computePieChart } from "../utils/piechart/compute-piechart"
+import { DEFAULT_COLORS } from "../utils/piechart/defaultColors"
 import { filterData } from "../utils/piechart/validate-data"
 import PieChartPlaceHolder from "./piechart-placeholder"
 import Sector from "./sector"
@@ -174,7 +175,9 @@ const PieChart = ({
 	} else if (validatedData.length === 1) {
 		const { fill, group, value } = validatedData[0]
 		const label = labelType === "percentage" ? "100%" : value.toString()
-		const singleSectorData = [{ group: group, fill: fill, label: label }]
+		const singleSectorData = [
+			{ group: group, fill: fill ?? DEFAULT_COLORS[0], label: label },
+		]
 
 		return (
 			<div
