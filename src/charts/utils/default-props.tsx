@@ -1,5 +1,3 @@
-import { Text, View } from "react-native"
-
 type ExampleLegendProps = {
 	data: {
 		group?: string | undefined
@@ -9,24 +7,25 @@ type ExampleLegendProps = {
 }
 export const ExampleLegend = ({ data }: ExampleLegendProps) => {
 	return (
-		<View>
+		<div>
 			{data.map((sector) => (
-				<View
+				<div
 					key={sector.group}
+					aria-hidden={true}
 					style={{ flexDirection: "row", alignItems: "center" }}
 				>
-					<View
+					<div
 						style={{
 							width: 12,
 							height: 12,
 							backgroundColor: sector.fill,
 						}}
 					/>
-					<Text>
+					<text>
 						{sector.group}: {sector.label}
-					</Text>
-				</View>
+					</text>
+				</div>
 			))}
-		</View>
+		</div>
 	)
 }
